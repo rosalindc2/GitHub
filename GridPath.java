@@ -29,7 +29,7 @@ public class GridPath {
             {
                 s += col + " ";
             }
-        s += "\n"
+        s += "\n";
         }
         return s;
 
@@ -44,21 +44,22 @@ public class GridPath {
         if ( col < grid[0].length - 1 )
         { right = grid[row][col + 1]; }
 
-        (if (below < right ) 
+        if (below < right ) 
         { return new Location(row + 1 , col); }
         else 
         {return new Location (row, col + 1); }
      }
-    }
 
     public int sumPath (int row, int col)
     {
         int sum = grid[row][col];
         while(row <  grid.length - 1 || col < grid[0].length - 1 )
-        { Location loc = getNextLoc(row, col);
+        { 
+            Location loc = getNextLoc(row, col);
             row = loc.getRow();
             col = loc.getCol();
             sum += [row][col];
         }
         return sum; 
+    }
 }
